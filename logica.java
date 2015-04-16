@@ -38,7 +38,7 @@ public class logica{
 				}
 			}
 			
-			System.out.println (respuestas [indice / 2]);
+			//System.out.println (respuestas [indice / 2]);
 		}
 		
 		return respuestas;
