@@ -1,4 +1,4 @@
-
+//logica
 public class logica{
 	
 	
