@@ -39,7 +39,7 @@ public class lectura{
 		int r2 = Integer.parseInt(ryp2[2]);
 		int x2 = Integer.parseInt(ryp2[0].substring(1, ryp2[0].length()-1));
 		int y2 = Integer.parseInt(ryp2[1].substring(0, ryp2[1].length()-1));
-		logica objLog = new logica(x1,y1,r1,x2,y2,r2,puntos.toArray());
+		logica objLog = new logica();
 		objLog.algoritmo();
       	}catch(Exception e){
          	e.printStackTrace();
