@@ -7,8 +7,10 @@ public class lectura{
 	File archivo = null;
    	FileReader fr = null;
   	BufferedReader br = null;
+  	
+  	
 	public String[] leerArchivo(File pa_archivo){
-		
+		String [] resultado = {};
  
     	try {
          // Apertura del fichero y creacion de BufferedReader para poder
@@ -39,8 +41,15 @@ public class lectura{
 		double r2 = Double.parseDouble(ryp2[2]);
 		double x2 = Double.parseDouble(ryp2[0].substring(1, ryp2[0].length()-1));
 		double y2 = Double.parseDouble(ryp2[1].substring(0, ryp2[1].length()-1));
-//		logica objLog = new logica();
-//		return objLog.algoritmo(x1,y1,r1,x2,y2,r2,puntos.toArray());
+		logica objLog = new logica();
+		int tamano = puntos.size();
+		
+		double [] coordenadas = new double [puntos.size()];
+		for (int i=0; i<puntos.size();i++)
+		{
+			coordenadas [i] = puntos.get (i);
+		}
+	    resultado = objLog.algoritmo(x1,y1,r1,x2,y2,r2,coordenadas);
       	}catch(Exception e){
          	e.printStackTrace();
 	    }finally{
@@ -55,14 +64,15 @@ public class lectura{
             	e2.printStackTrace();
          	}
       	}
+	return resultado;
 	}
 
-	public static void main(String[] args){
+	/**public static void main(String[] args){
 		File file = new File("archivo.txt");
 		lectura la = new lectura();
 		la.leerArchivo(file);
 		
 
-	}
+	}**/
 
 }

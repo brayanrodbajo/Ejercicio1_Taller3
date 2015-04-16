@@ -149,7 +149,7 @@ public class ventana extends javax.swing.JFrame {
     private void btCalcularActionPerformed(java.awt.event.ActionEvent evt) {                                           
         // TODO add your handling code here:
         leer = new lectura();
-        mensaje=leer.leerarchivo(file);
+        mensaje=leer.leerArchivo(file);
         String total="";
         for(int i=0; i<mensaje.length ;i++){
             total+=mensaje[i]+"\n";
