@@ -7,17 +7,20 @@ public class logica{
 		
 	}
 	//**************************************************************************************//
-	public String [] algoritmo (int cx1, int cy1, int r1 , int cx2, int cy2, int r2, int [] puntos)
+	public String [] algoritmo (double cx1, double cy1, double r1 , double cx2, double cy2, double r2, double [] puntos)
 	{
 		int tamano = puntos.length;
 		String [] respuestas = new  String [tamano / 2];
 		for (int indice =0 ; indice < puntos.length; indice+=2)
 		{
-			int px = puntos[indice];
-			int py = puntos[indice+1];
+			double px = puntos[indice];
+			double py = puntos[indice+1];
+			String str_px =Double.toString (px);
+			String str_py =Double.toString (py);
+			String punto = "(" + str_px + ", " + str_py + ") -> "; 
 			if ((distancia (cx1,cy1,px,py) > r1) && (distancia (cx2,cy2,px,py) > r2))
 			{
-				respuestas [indice / 2] = "Fuera de los dos circulos";
+				respuestas [indice / 2] = punto + "Fuera de los dos circulos";
 			}
 			else
 			{
@@ -25,16 +28,16 @@ public class logica{
 				{
 					if  (distancia (cx2,cy2,px,py) <= r2)
 					{
-						respuestas [indice / 2] = "Dentro de los dos circulos";
+						respuestas [indice / 2] = punto + "Dentro de los dos circulos";
 					}
 					else
 					{
-						respuestas [indice / 2] = "Dentro del circulo 1";
+						respuestas [indice / 2] = punto + "Dentro del circulo 1";
 					}
 				}
 				else
 				{
-					respuestas [indice / 2] = "Dentro del circulo 2";
+					respuestas [indice / 2] = punto + "Dentro del circulo 2";
 				}
 			}
 			
@@ -44,21 +47,22 @@ public class logica{
 		return respuestas;
 	}
 	//**************************************************************************************//
-	public double distancia (int cx, int cy, int px,  int py)
+	public double distancia (double cx, double cy, double px,  double py)
 	{
-		int dis_x = px-cx;
-		int dis_y = py-cy;
+		double dis_x = px-cx;
+		double dis_y = py-cy;
 		double dist = Math.sqrt (Math.pow (dis_x,2) + Math.pow (dis_y,2));
 		return dist;
 	}
 	 
 	//**************************************************************************************//
-	
 	/**
 	public static void main (String [] args)
 	{
-		int [] puntos = {2,2,  4,4,  0,4,  2,0, 4,5, 1,2,  -2,1,  -2,-2, 0,0};
-		logica log = new logica (0,0,2,0,1,2,puntos);
-	} **/
+		double [] puntos = {2.0,2.0,  4.0,4.0,  0.0,4.0,  2.0,0.0, 4.0,5.0, 1.0,2.0,  -2.0,1.0,  -2.0,-2.0, 0.0,0.0};
+		logica log = new logica ();
+		log.algoritmo (0,0,2,0,1,2,puntos);
+	} 
+	* **/
 }
 
