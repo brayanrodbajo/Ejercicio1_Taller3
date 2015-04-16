@@ -2,7 +2,7 @@ import java.io.FileReader;
 import java.io.File;
 import java.io.BufferedReader;
 import java.util.Vector;
-
+//lectura
 public class lectura{
 	File archivo = null;
    	FileReader fr = null;
